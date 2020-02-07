@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14814" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14814"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +673,26 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="R_Studio" customModuleProvider="target">
+                    <connections>
+                        <outlet property="toolbar" destination="hWS-os-m6b" id="wEo-YX-gxg"/>
+                    </connections>
+                </customObject>
+                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="hWS-os-m6b">
+                    <allowedToolbarItems>
+                        <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="tQ6-To-kGx"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="R5v-eb-vkM"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="trJ-V0-IUz"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="g1F-ZM-tGV"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="5vI-Cv-KNG"/>
+                    </allowedToolbarItems>
+                    <defaultToolbarItems>
+                        <toolbarItem reference="tQ6-To-kGx"/>
+                        <toolbarItem reference="R5v-eb-vkM"/>
+                        <toolbarItem reference="5vI-Cv-KNG"/>
+                        <toolbarItem reference="trJ-V0-IUz"/>
+                    </defaultToolbarItems>
+                </toolbar>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
