@@ -17,10 +17,10 @@ struct MainView: View {
             Spacer(minLength: 0)
             HStack {
                 ThumbnailListView()
-                    .background(Color.blue)
+                    
                 Spacer(minLength: 0)
                 SkinnyView()
-                    .frame(width:200)
+                    .frame(width:200, alignment: .trailing)
                     .background(Color.green)
                 Spacer(minLength: 0)
             }

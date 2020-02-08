@@ -11,11 +11,9 @@ import SwiftUI
 struct ThumbnailView: View {
     
     var body: some View {
-        GeometryReader { g in
-            RoundedRectangle(cornerRadius: 5)
-                .border(Color.white, width: 3)
-            
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        RoundedRectangle(cornerRadius: 20)
+            .padding(5)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
