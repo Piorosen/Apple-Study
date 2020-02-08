@@ -22,32 +22,36 @@ extension NSImage {
 }
 
 struct ThumbnailView: View {
-    var data:NSImage
+    var image:NSImage
+    var paddingSize:CGFloat
     
-    init(image: NSImage) {
-        data = image
-    }
-    
+    @State var isClick = false
+
     var body: some View {
 //        if let p = test {
 //            return RoundedRectangle(cornerRadius: 20)
 //                .padding(5)
 //                .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        }
-        
-        Image(nsImage: data)
-//        Image(nsImage: NSImage(data: data)!)
+       
+        Image(nsImage: image)
             .resizable()
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(5)
+            .padding(paddingSize)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaleEffect(self.isClick ? 0.7 : 1.0)
+            .onTapGesture {
+                withAnimation {
+                    self.isClick.toggle()
+                }
+            }
     }
 }
 
 #if DEBUG
 struct ThumbnailView_Previews: PreviewProvider {
     static var previews: some View {
-        ThumbnailView(image: NSImage.thumbnailImage(with: "/Users/aoikazto/Desktop/a.jpeg", maxWidth:  100)!)
+        ThumbnailView(image: NSImage.thumbnailImage(with: "/Users/aoikazto/Desktop/a.jpeg", maxWidth:  100)!, paddingSize: 10)
     }
 }
 #endif
