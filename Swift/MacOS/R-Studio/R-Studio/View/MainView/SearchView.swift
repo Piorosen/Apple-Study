@@ -9,11 +9,24 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var text = ""
+    
     var body: some View {
         HStack {
-            Text("")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
+            Spacer()
+            Button(action: {
+                
+            }){
+                Text("편집")
+            }
+            Button(action: {
+                
+            }){
+                Text("설정")
+            }
+            TextField("ddd", text: self.$text).frame(width:300).padding(.trailing, 30)
+            
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

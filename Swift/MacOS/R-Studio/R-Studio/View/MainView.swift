@@ -10,18 +10,17 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
+        VStack (spacing: 0) {
             SearchView()
                 .frame(height: 30)
-                .background(Color.red)
-            Spacer(minLength: 0)
-            HStack {
+            Divider()
+            HStack (spacing: 0) {
                 ThumbnailListView()
                     
-                Spacer(minLength: 0)
+                Divider()
+                
                 SkinnyView()
                     .frame(width:200, alignment: .trailing)
-                    .background(Color.green)
                 Spacer(minLength: 0)
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
