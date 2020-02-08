@@ -29,11 +29,15 @@ struct ThumbnailView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(paddingSize)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .border(Color.)
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
                 withAnimation {
-                    self.isClick.toggle()
+                    self.isClick = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation {
+                            self.isClick = false
+                        }
+                    }
                 }
             }
     }

@@ -9,8 +9,6 @@
 import Foundation
 import SwiftUI
 
-
-
 class ThumbnailListViewModel : ObservableObject {
     @Published var item = [ThumbnailModel]()
     var blankPool = [ThumbnailModel]()
@@ -24,7 +22,7 @@ class ThumbnailListViewModel : ObservableObject {
         }
        
         for _ in 0...100 {
-            item.append(ThumbnailModel(s: CGSize(width: 150, height: 150), file: "/Users/aoikazto/Desktop/a.jpeg"))
+            item.append(ThumbnailModel(s: CGSize(width: 100, height: 100), file: "/Users/aoikazto/Desktop/a.jpeg"))
         }
         
     }
