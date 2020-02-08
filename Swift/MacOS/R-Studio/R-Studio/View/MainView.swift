@@ -10,7 +10,21 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            SearchView()
+                .frame(height: 30)
+                .background(Color.red)
+            Spacer(minLength: 0)
+            HStack {
+                ThumbnailListView()
+                    .background(Color.blue)
+                Spacer(minLength: 0)
+                SkinnyView()
+                    .frame(width:200)
+                    .background(Color.green)
+                Spacer(minLength: 0)
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

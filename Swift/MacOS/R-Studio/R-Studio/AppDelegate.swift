@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         
-        window.toolbar = toolbar
+//        window.toolbar = toolbar
         window.makeKeyAndOrderFront(nil)
     }
 

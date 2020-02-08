@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct ThumbnailView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { g in
+            RoundedRectangle(cornerRadius: 5)
+                .border(Color.white, width: 3)
+            
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
