@@ -13,14 +13,19 @@ import SwiftUI
 
 class ThumbnailListViewModel : ObservableObject {
     @Published var item = [ThumbnailModel]()
+    var blankPool = [ThumbnailModel]()
     
     var height:Int = 0
     var width:Int = 0
-    
-    let image: NSImage = NSImage(size: NSSize(width: 150, height: 150))
-    
+//    
     init() {
-        item.append(ThumbnailModel(s: CGSize(width: 150, height: 150), file: "/Users/aoikazto/Desktop/a.jpeg"))
+        for _ in 0...10 {
+            blankPool.append(ThumbnailModel.getBlankInstance())
+        }
+       
+        for _ in 0...100 {
+            item.append(ThumbnailModel(s: CGSize(width: 150, height: 150), file: "/Users/aoikazto/Desktop/a.jpeg"))
+        }
         
     }
     
@@ -35,15 +40,10 @@ class ThumbnailListViewModel : ObservableObject {
         if item.count <= last {
             last = item.count
         }
-        var p = Array(item[start..<last])
-    
-        let count = width - p.count
         
-        for _ in 0..<count {
-            p.append(ThumbnailModel.getBlankInstance())
-        }
+        let count = width - (last - start)
         
-        return p
+        return Array(item[start..<last] + blankPool[0..<count])
     }
 //    
     public func getHeight(width: Int) -> Int {

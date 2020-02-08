@@ -18,6 +18,7 @@ extension NSImage {
         
         let outputImage = NSImage(size: thumbSize)
         outputImage.lockFocus()
+        
         inputImage.draw(in: NSRect(x: 0, y: 0, width: thumbSize.width, height: thumbSize.height), from: .zero, operation: .sourceOver, fraction: 1)
         outputImage.unlockFocus()
         return outputImage
@@ -30,11 +31,17 @@ struct ThumbnailModel : Identifiable {
     let size:CGSize
     
     var fileName:String
-    private var cache:NSImage?
+    private var cache:NSImage
     
     init(s:CGSize, file:String) {
         size = s
         fileName = file
+        
+        if FileManager.default.fileExists(atPath: fileName) {
+            self.cache = NSImage.thumbnailImage(with: fileName, maxSize: self.size)!
+        }else {
+            self.cache = NSImage(size: size)
+        }
     }
     
     static func getBlankInstance() -> ThumbnailModel {
@@ -42,16 +49,7 @@ struct ThumbnailModel : Identifiable {
     }
     
     mutating func getNSImage() -> NSImage {
-        if cache != nil {
-            return cache!
-        }
         
-        if FileManager.default.fileExists(atPath: fileName) {
-            self.cache = NSImage.thumbnailImage(with: fileName, maxSize: self.size)!
-        }else {
-            self.cache = NSImage(size: size)
-        }
-        
-        return cache!
+        return cache
     }
 }

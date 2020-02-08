@@ -29,7 +29,7 @@ struct ThumbnailView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(paddingSize)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .border(Color.white)
+//            .border(Color.)
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
                 withAnimation {
