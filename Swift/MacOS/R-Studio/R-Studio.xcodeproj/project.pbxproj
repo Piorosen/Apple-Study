@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62022DC223EF2AA200C296AE /* ThumbnailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62022DC123EF2AA200C296AE /* ThumbnailListViewModel.swift */; };
+		62022DC523EF2ED800C296AE /* ThumbnailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62022DC423EF2ED800C296AE /* ThumbnailModel.swift */; };
 		62F4DC5F23EE02C500AF30DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4DC5E23EE02C500AF30DC /* AppDelegate.swift */; };
 		62F4DC6123EE02C500AF30DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4DC6023EE02C500AF30DC /* ContentView.swift */; };
 		62F4DC6323EE02C500AF30DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F4DC6223EE02C500AF30DC /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62022DC123EF2AA200C296AE /* ThumbnailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailListViewModel.swift; sourceTree = "<group>"; };
+		62022DC423EF2ED800C296AE /* ThumbnailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailModel.swift; sourceTree = "<group>"; };
 		62F4DC5B23EE02C500AF30DC /* R-Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F4DC5E23EE02C500AF30DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F4DC6023EE02C500AF30DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +52,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62022DC023EF2A7000C296AE /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				62022DC123EF2AA200C296AE /* ThumbnailListViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		62022DC323EF2EC700C296AE /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				62022DC423EF2ED800C296AE /* ThumbnailModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		62F4DC5223EE02C400AF30DC = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +121,7 @@
 		62F4DC7223EE047000AF30DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				62022DC323EF2EC700C296AE /* MainView */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +129,7 @@
 		62F4DC7323EE047400AF30DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				62022DC023EF2A7000C296AE /* MainView */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -201,6 +223,8 @@
 				62F4DC7A23EE06B600AF30DC /* GroupView.swift in Sources */,
 				62F4DC7523EE05C700AF30DC /* MainView.swift in Sources */,
 				62F4DC8023EE070400AF30DC /* ThumbnailListView.swift in Sources */,
+				62022DC523EF2ED800C296AE /* ThumbnailModel.swift in Sources */,
+				62022DC223EF2AA200C296AE /* ThumbnailListViewModel.swift in Sources */,
 				62F4DC7E23EE06EB00AF30DC /* ThumbnailView.swift in Sources */,
 				62F4DC5F23EE02C500AF30DC /* AppDelegate.swift in Sources */,
 			);

@@ -12,16 +12,16 @@ struct ThumbnailListView: View {
     let elementViewSize = CGSize(width: 150, height: 150)
     let paddingSize:CGFloat = 10
     
-    let image = NSImage.thumbnailImage(with: "/Users/aoikazto/Desktop/a.jpeg", maxWidth: 100)!
+    @ObservedObject var viewModel = ThumbnailListViewModel()
     
     var body: some View {
         GeometryReader { g in
             ScrollView {
                 VStack(spacing: 0) {
-                    ForEach (0...20, id: \.self) { _ in
+                    ForEach (0..<self.viewModel.getHeight(width: Int(g.size.width / self.elementViewSize.width)), id: \.self) { y in
                         HStack(spacing: 0) {
-                            ForEach (0..<Int(g.size.width / self.elementViewSize.width), id: \.self) { _ in
-                                ThumbnailView(image: self.image, paddingSize: self.paddingSize)
+                            ForEach (self.viewModel.getSliceModel(y: y)) { m in
+                                ThumbnailView(model: m)
                                     .frame(width: self.elementViewSize.width, height: self.elementViewSize.height)
                                     .contextMenu{
                                         Button(action: {}){
