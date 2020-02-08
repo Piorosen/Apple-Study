@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var age = 18
     var body: some View {
         MainView()
             .frame(maxWidth:.infinity, maxHeight: .infinity)

@@ -13,9 +13,7 @@ struct ContentView: View {
     @State var showing = false
     
     var body: some View {
-        GeometryReader { g in
-            
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        Image(nsImage: NSImage(contentsOf: URL(fileURLWithPath: "/Users/aoikazto/Desktop/a.jpeg"))!)
     }
 }
 

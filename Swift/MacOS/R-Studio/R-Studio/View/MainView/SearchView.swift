@@ -24,7 +24,9 @@ struct SearchView: View {
             }){
                 Text("설정")
             }
-            TextField("ddd", text: self.$text).frame(width:300).padding(.trailing, 30)
+            TextField("Search", text: self.$text)
+                    .frame(width:300)
+                    .padding(.trailing, 30)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
