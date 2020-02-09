@@ -23,18 +23,6 @@ struct ThumbnailListView: View {
                             ForEach (self.viewModel.getSliceModel(y: y)) { m in
                                 ThumbnailView(model: m)
                                     .frame(width: self.elementViewSize.width, height: self.elementViewSize.height)
-                                    .contextMenu{
-                                        Button(action: {}){
-                                            Text("Add")
-                                        }
-                                        
-                                        Button(action: {}){
-                                            Text("Delete")
-                                        }
-                                        Button(action: {}){
-                                            Text("Modify Info")
-                                        }
-                                }
                             }
                         }.frame(maxWidth: .infinity)
                     }
@@ -43,7 +31,6 @@ struct ThumbnailListView: View {
         }
         .padding(5)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
     }
 }
 

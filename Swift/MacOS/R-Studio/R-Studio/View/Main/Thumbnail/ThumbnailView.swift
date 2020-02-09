@@ -22,24 +22,25 @@ struct ThumbnailView: View {
     }
     
     @State var isClick = false
-
+    
     var body: some View {
         Image(nsImage: self.image)
             .resizable()
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            //            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.primary , lineWidth: self.isClick ? 4 : 0))
             .padding(paddingSize)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
                 withAnimation {
                     self.isClick = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
                         withAnimation {
                             self.isClick = false
                         }
                     }
                 }
-            }
+        }
     }
 }
 
