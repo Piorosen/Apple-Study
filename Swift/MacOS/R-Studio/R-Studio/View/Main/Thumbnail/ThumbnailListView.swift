@@ -14,6 +14,8 @@ struct ThumbnailListView: View {
     
     @ObservedObject var viewModel = ThumbnailListViewModel()
     
+    @State var dropEvent = false
+    
     var body: some View {
         GeometryReader { g in
             ScrollView {
@@ -23,6 +25,7 @@ struct ThumbnailListView: View {
                             ForEach (self.viewModel.getSliceModel(y: y)) { m in
                                 ThumbnailView(model: m)
                                     .frame(width: self.elementViewSize.width, height: self.elementViewSize.height)
+                                
                             }
                         }.frame(maxWidth: .infinity)
                     }
@@ -31,6 +34,16 @@ struct ThumbnailListView: View {
         }
         .padding(5)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onDrop(of: [kUTTypeFileURL as String], isTargeted: self.$dropEvent) { itemProvider in
+            for item in itemProvider {
+                item.loadItem(forTypeIdentifier: (kUTTypeFileURL as String), options: nil) {item, error in
+                    guard let data = item as? Data, let url = URL(dataRepresentation: data, relativeTo: nil) else { return }
+                    self.viewModel.addToImage(url: url)
+                    print(url.path)
+                }
+            }
+            return true
+        }
     }
 }
 

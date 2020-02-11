@@ -52,20 +52,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62022DC023EF2A7000C296AE /* MainView */ = {
+		62022DC023EF2A7000C296AE /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				62022DC123EF2AA200C296AE /* ThumbnailListViewModel.swift */,
 			);
-			path = MainView;
+			path = Main;
 			sourceTree = "<group>";
 		};
-		62022DC323EF2EC700C296AE /* MainView */ = {
+		62022DC323EF2EC700C296AE /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				62022DC423EF2ED800C296AE /* ThumbnailModel.swift */,
 			);
-			path = MainView;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		6276C9BC23F005C700186AA3 /* Skinny */ = {
@@ -146,7 +146,7 @@
 		62F4DC7223EE047000AF30DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				62022DC323EF2EC700C296AE /* MainView */,
+				62022DC323EF2EC700C296AE /* Main */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 		62F4DC7323EE047400AF30DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				62022DC023EF2A7000C296AE /* MainView */,
+				62022DC023EF2A7000C296AE /* Main */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

@@ -11,6 +11,10 @@ import SwiftUI
 
 extension NSImage {
     static func thumbnailImage(with url: String, maxSize: CGSize) -> NSImage? {
+        if !FileManager.default.fileExists(atPath: url) {
+            return nil
+        }
+        
         guard let inputImage = NSImage(contentsOf: URL(fileURLWithPath: url)) else { return nil }
 //        let aspectRatio = inputImage.size.width / inputImage.size.height
         
@@ -34,14 +38,18 @@ struct ThumbnailModel : Identifiable {
     var fileName:String
     private var cache:NSImage
     
+    var createResult = false
+    
     init(s:CGSize, file:String) {
         size = s
         fileName = file
         
-        if FileManager.default.fileExists(atPath: fileName) {
-            self.cache = NSImage.thumbnailImage(with: fileName, maxSize: self.size)!
+        if let image = NSImage.thumbnailImage(with: fileName, maxSize: self.size){
+            self.cache = image
+            createResult = true
         }else {
             self.cache = NSImage(size: size)
+            createResult = false
         }
     }
     

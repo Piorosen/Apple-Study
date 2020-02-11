@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         MainView()
-        .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
     }
 }
 

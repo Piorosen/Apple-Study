@@ -11,20 +11,28 @@ import SwiftUI
 
 class ThumbnailListViewModel : ObservableObject {
     @Published var item = [ThumbnailModel]()
-    var blankPool = [ThumbnailModel]()
     
     var height:Int = 0
     var width:Int = 0
 //    
     init() {
-        for _ in 0...10 {
-            blankPool.append(ThumbnailModel.getBlankInstance())
+        addToImage(url: URL(fileURLWithPath: "/Users/aoikazto/Desktop/a.jpeg"))
+    }
+    
+    public func addToImage(url: [URL]) {
+        for value in url {
+            addToImage(url: value)
         }
-       
-        for _ in 0...100 {
-            item.append(ThumbnailModel(s: CGSize(width: 100, height: 100), file: "/Users/aoikazto/Desktop/a.jpeg"))
+    }
+    
+    public func addToImage(url: URL){
+        DispatchQueue.main.async {
+            let p = ThumbnailModel(s:CGSize(width: 100, height: 100), file: url.path)
+            
+            if p.createResult {
+                self.item.append(p)
+            }
         }
-        
     }
     
     public func getSliceModel(y:Int) -> [ThumbnailModel] {
@@ -39,9 +47,12 @@ class ThumbnailListViewModel : ObservableObject {
             last = item.count
         }
         
-        let count = width - (last - start)
+        var result = item[start..<last]
+        for _ in 0..<(width - (last - start)) {
+            result.append(ThumbnailModel.getBlankInstance())
+        }
         
-        return Array(item[start..<last] + blankPool[0..<count])
+        return Array(result)
     }
 //    
     public func getHeight(width: Int) -> Int {
