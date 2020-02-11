@@ -15,6 +15,8 @@ struct ThumbnailListView: View {
     @ObservedObject var viewModel = ThumbnailListViewModel()
     
     @State var dropEvent = false
+    @Binding var pageType:ZipThumb
+    @Binding var readNow:String
     
     var body: some View {
         GeometryReader { g in
@@ -23,7 +25,7 @@ struct ThumbnailListView: View {
                     ForEach (0..<self.viewModel.getHeight(width: Int(g.size.width / self.elementViewSize.width)), id: \.self) { y in
                         HStack(spacing: 0) {
                             ForEach (self.viewModel.getSliceModel(y: y)) { m in
-                                ThumbnailView(model: m)
+                                ThumbnailView(image: m.getNSImage() , fileName: m.fileName, pageType: self.$pageType, readNow: self.$readNow)
                                     .frame(width: self.elementViewSize.width, height: self.elementViewSize.height)
                                 
                             }
@@ -48,9 +50,9 @@ struct ThumbnailListView: View {
 }
 
 #if DEBUG
-struct ThumbnailListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThumbnailListView()
-    }
-}
+//struct ThumbnailListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ThumbnailListView()
+//    }
+//}
 #endif

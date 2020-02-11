@@ -16,7 +16,7 @@ class ThumbnailListViewModel : ObservableObject {
     var width:Int = 0
 //    
     init() {
-        addToImage(url: URL(fileURLWithPath: "/Users/aoikazto/Desktop/a.jpeg"))
+//        addToImage(url: URL(fileURLWithPath: "/Users/aoikazto/Desktop/a.jpeg"))
     }
     
     
@@ -29,7 +29,6 @@ class ThumbnailListViewModel : ObservableObject {
     public func addToImage(url: URL){
         DispatchQueue.main.async {
             let p = ThumbnailModel(s:CGSize(width: 100, height: 100), file: url.path)
-            
             if p.createResult {
                 self.item.append(p)
             }

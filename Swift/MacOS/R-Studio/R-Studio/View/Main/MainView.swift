@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var pageType:ZipThumb
+    @Binding var readNow:String
+    
     var body: some View {
         VStack (spacing: 0) {
             SearchView()
@@ -16,7 +19,7 @@ struct MainView: View {
             Divider()
             HStack (spacing: 0) {
                 HSplitView {
-                    ThumbnailListView()
+                    ThumbnailListView(pageType: self.$pageType, readNow: self.$readNow)
                     Divider()
                     SkinnyView()
                         .frame(minWidth:200, maxWidth: 350, alignment: .trailing)
@@ -27,9 +30,11 @@ struct MainView: View {
 }
 
 #if DEBUG
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    @State var result = ZipThumb().clear(fileName: "/Users/aoikazto/Desktop/1.zip")
+//    
+//    static var previews: some View {
+//        MainView(pageType: self.)
+//    }
+//}
 #endif

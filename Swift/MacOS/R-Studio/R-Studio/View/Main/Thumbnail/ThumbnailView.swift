@@ -10,16 +10,13 @@ import SwiftUI
 
 
 struct ThumbnailView: View {
-    var item: ThumbnailModel
+//    var item: ThumbnailModel
     let image:NSImage
     
-    var paddingSize:CGFloat
-    
-    init(model: ThumbnailModel){
-        item = model
-        image = item.getNSImage()
-        paddingSize = 10
-    }
+    var paddingSize:CGFloat = 10
+    let fileName:String
+    @Binding var pageType:ZipThumb
+    @Binding var readNow:String
     
     @State var isClick = false
     
@@ -33,21 +30,18 @@ struct ThumbnailView: View {
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
                 withAnimation {
-                    self.isClick = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-                        withAnimation {
-                            self.isClick = false
-                        }
-                    }
+                    self.isClick.toggle()
+                    self.readNow = self.fileName
+                    let _ = self.pageType.clear(fileName: self.fileName)
                 }
-        }
+            }
     }
 }
 
 #if DEBUG
-struct ThumbnailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThumbnailView(model: ThumbnailModel(s: CGSize(width: 100, height: 100), file: "/Users/aoikazto/Desktop/a.jpeg"))
-    }
-}
+//struct ThumbnailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ThumbnailView(model: ThumbnailModel(s: CGSize(width: 100, height: 100), file: "/Users/aoikazto/Desktop/a.jpeg"))
+//    }
+//}
 #endif
