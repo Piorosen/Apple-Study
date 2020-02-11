@@ -27,6 +27,20 @@ extension NSImage {
         outputImage.unlockFocus()
         return outputImage
     }
+    
+    static func thumbnailImage(with data: Data, maxSize: CGSize) -> NSImage? {
+        guard let inputImage = NSImage(data: data) else { return nil }
+        
+        let thumbSize = NSSize(width: maxSize.width, height: maxSize.height)
+        
+        let outputImage = NSImage(size: thumbSize)
+        outputImage.lockFocus()
+        
+        inputImage.draw(in: NSRect(x: 0, y: 0, width: thumbSize.width, height: thumbSize.height), from: .zero, operation: .sourceOver, fraction: 1)
+        outputImage.unlockFocus()
+        
+        return outputImage
+    }
 }
 
 

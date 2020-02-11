@@ -19,6 +19,7 @@ class ThumbnailListViewModel : ObservableObject {
         addToImage(url: URL(fileURLWithPath: "/Users/aoikazto/Desktop/a.jpeg"))
     }
     
+    
     public func addToImage(url: [URL]) {
         for value in url {
             addToImage(url: value)
