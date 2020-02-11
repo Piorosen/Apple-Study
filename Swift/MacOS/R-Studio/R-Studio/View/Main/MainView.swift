@@ -15,13 +15,12 @@ struct MainView: View {
                 .frame(height: 30)
             Divider()
             HStack (spacing: 0) {
-                ThumbnailListView()
-                    
-                Divider()
-                
-                SkinnyView()
-                    .frame(width:200, alignment: .trailing)
-                Spacer(minLength: 0)
+                HSplitView {
+                    ThumbnailListView()
+                    Divider()
+                    SkinnyView()
+                        .frame(minWidth:200, maxWidth: 350, alignment: .trailing)
+                }   
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }

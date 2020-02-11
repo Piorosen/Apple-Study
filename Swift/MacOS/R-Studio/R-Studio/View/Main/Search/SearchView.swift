@@ -25,6 +25,7 @@ struct SearchView: View {
                 Text("설정")
             }
             TextField("Search", text: self.$text)
+                
                     .frame(width:300)
                     .padding(.trailing, 30)
             

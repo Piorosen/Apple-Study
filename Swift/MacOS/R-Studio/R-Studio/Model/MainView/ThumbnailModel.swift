@@ -30,6 +30,7 @@ struct ThumbnailModel : Identifiable {
     var id = UUID()
     let size:CGSize
     
+    
     var fileName:String
     private var cache:NSImage
     
@@ -48,8 +49,7 @@ struct ThumbnailModel : Identifiable {
         return ThumbnailModel(s: CGSize(width: 150, height: 150), file: "")
     }
     
-    mutating func getNSImage() -> NSImage {
-        
+    func getNSImage() -> NSImage {
         return cache
     }
 }

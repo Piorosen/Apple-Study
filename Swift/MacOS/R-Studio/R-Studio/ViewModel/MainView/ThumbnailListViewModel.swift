@@ -45,6 +45,10 @@ class ThumbnailListViewModel : ObservableObject {
     }
 //    
     public func getHeight(width: Int) -> Int {
+        if width == 0 {
+            return 0
+        }
+        
         self.width = width
         height = item.count / width + (item.count % width == 0 ? 0 : 1)
         

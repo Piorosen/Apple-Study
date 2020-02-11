@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var age = 18
+    @State var searchText = ""
+    @State var showCancelButton = false
+    
     var body: some View {
         MainView()
-            .frame(maxWidth:.infinity, maxHeight: .infinity)
+        .frame(maxWidth:.infinity, maxHeight: .infinity)
     }
 }
 
