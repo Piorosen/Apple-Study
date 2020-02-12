@@ -12,7 +12,7 @@ struct ThumbnailListView: View {
     let elementViewSize = CGSize(width: 150, height: 150)
     let paddingSize:CGFloat = 10
     
-    @ObservedObject var viewModel = ThumbnailListViewModel()
+    @EnvironmentObject var viewModel:ThumbnailListViewModel
     
     @State var dropEvent = false
     @Binding var pageType:ZipThumb

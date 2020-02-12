@@ -18,16 +18,14 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { g in
             
-            Reader(r: self.$zip)
-                .frame(maxWidth: g.size.width, maxHeight: .infinity)
-                .offset(x: self.nowReadPage == self.zip.fileName ? 0 : -g.size.width, y: 0)
-        
             MainView(pageType: self.$zip, readNow: self.$nowReadPage)
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
             
+            Reader(read: self.$zip, viewModel: ReaderViewModel(read: self.zip))
+                .offset(x: self.nowReadPage == self.zip.fileName ? 0 : -g.size.width, y: 0)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
-        
         
     }
 }

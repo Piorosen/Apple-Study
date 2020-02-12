@@ -32,40 +32,41 @@ struct ImageReader: Identifiable {
                 result.append(reader)
             }
         }
-        
+    
         return result
     }
 }
 
 struct Reader: View {
-    var readNow:Binding<ZipThumb>
-    var list:[ImageReader]
-    
-    init(r:Binding<ZipThumb>) {
-        list = ImageReader.getList(zip: r.wrappedValue)
-        self.readNow = r
-    }
+    @Binding var read: ZipThumb
+    @ObservedObject var viewModel:ReaderViewModel
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    self.readNow.wrappedValue.fileName = ""
+                    self.read.fileName = ""
                     
                 }) {
                     Text("Close")
                 }
-            }.frame(height: CGFloat(30), alignment: .trailing)
+            }.frame(height: 30, alignment: .trailing)
             Divider()
             ScrollView {
                 VStack {
-                    ForEach (list) { item in
-                        Image(nsImage: item.image)
+                    if viewModel.loadingEnd == true {
+                        ForEach (viewModel.image) { item in
+                            Image(nsImage: item.image)
+                            .shadow(radius: 30)
+                        }
+                    }else {
+                        Text("Loading")
                     }
+                    
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(Color.red)
+        //            .background(Color.red)
     }
 }
 

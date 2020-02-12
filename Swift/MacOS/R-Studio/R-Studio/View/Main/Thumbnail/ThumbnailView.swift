@@ -30,9 +30,13 @@ struct ThumbnailView: View {
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
                 withAnimation {
-                    self.isClick.toggle()
-                    self.readNow = self.fileName
-                    let _ = self.pageType.clear(fileName: self.fileName)
+                    
+                    DispatchQueue.main.async {
+                        self.isClick.toggle()
+                        self.readNow = self.fileName
+                        let _ = self.pageType.clear(fileName: self.fileName)
+                    }
+                    
                 }
             }
     }
