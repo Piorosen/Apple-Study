@@ -12,28 +12,34 @@ struct ImageReader: Identifiable {
     let id = UUID()
     var image:NSImage
     
-    init(data:Data) {
-        self.image = NSImage(data: data)!
+    init?(data:Data) {
+        if let value = NSImage(data: data) {
+            self.image = value
+        } else {
+        return nil
     }
     
-    static func getList(zip:ZipThumb) -> [ImageReader] {
-        var result = [ImageReader]()
-        
-        if let file = zip.archive {
-            for name in zip.zipList {
-                var data = Data()
-                
-                try! file.extract(file[name]!) { value in
-                    data.append(value)
-                }
-                
-                let reader = ImageReader(data: data)
-                
-                result.append(reader)
-            }
-        }
-    
-        return result
+//    
+//    static func getList(zip:ZipThumb, image: inout [ImageReader]) {
+//        image = [ImageReader]()
+//        
+//        
+//        if let file = zip.archive {
+//            for name in zip.zipList {
+//                var data = Data()
+//                
+//                let result = try! file.extract(file[name]!) { value in
+//                    data.append(value)
+//                }
+//                
+//                if result != nil {
+//                    
+//                }
+//                if let reader = ImageReader(data: data) {
+//                    image.append(reader)
+//                }
+//            }
+//        }
     }
 }
 
@@ -45,31 +51,38 @@ struct Reader: View {
         VStack {
             HStack {
                 Button(action: {
-                    self.read.fileName = ""
+                    withAnimation {
+                        self.read.fileName = ""
+                    }
+                    
                     
                 }) {
                     Text("Close")
                 }
             }.frame(height: 30, alignment: .trailing)
             Divider()
-            ScrollView {
-                VStack {
-                    if viewModel.loadingEnd == true {
-                        ForEach (viewModel.image) { item in
-                            Image(nsImage: item.image)
-                            .shadow(radius: 30)
-                        }
-                    }else {
-                        Text("Loading")
-                    }
-                    
-                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            //            if viewModel.loadingEnd == true {
+            
+            List (viewModel.image) { i in
+                Image(nsImage: i.image).frame(alignment:.center)
             }
+            //            List (viewModel.image) { i in
+            //                Image(nsImage: i.image).frame(alignment:.center)
+            //            }
+            
+            
+            //            }else {
+            //                Text("Loading")
+            //            }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        //            .background(Color.red)
+            .background(Color.red)
+//            .onAppear{
+//                self.viewModel.loadImage()
+//        }
     }
 }
-
+//            .background(Color.red)
 //struct Reader_Previews: PreviewProvider {
 //    static var previews: some View {
 //        Reader(readNow: "")

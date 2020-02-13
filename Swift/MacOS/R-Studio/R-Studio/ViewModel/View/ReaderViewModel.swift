@@ -17,14 +17,40 @@ class ReaderViewModel : ObservableObject {
     
     init (read:ZipThumb) {
         readNow = read
-        DispatchQueue.main.async {
-            self.image = ImageReader.getList(zip: self.readNow)
-            withAnimation  {
-                self.loadingEnd = true
+        loadImage()
+    }
+    
+    func loadImage(){
+        print("Called")
+        image = [ImageReader]()
+        
+        guard let file = readNow.archive else {
+            return
+        }
+        let list = readNow.zipList
+        //        }().addOperation {
+        DispatchQueue.global().async {
+            for name in list {
+                
+                if let item = file[name] {
+                    var data = Data()
+                    
+                    let result = try? file.extract(item) { value in
+                        data.append(value)
+                    }
+                    
+                    if result != nil {
+                        if let reader = ImageReader(data: data) {
+                            DispatchQueue.main.async {
+                                self.image.append(reader)
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
             }
         }
     }
-    
-    
-    
 }

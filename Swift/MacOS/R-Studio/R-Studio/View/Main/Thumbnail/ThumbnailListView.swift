@@ -37,13 +37,18 @@ struct ThumbnailListView: View {
         .padding(5)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onDrop(of: [kUTTypeFileURL as String], isTargeted: self.$dropEvent) { itemProvider in
-            for item in itemProvider {
-                item.loadItem(forTypeIdentifier: (kUTTypeFileURL as String), options: nil) {item, error in
-                    guard let data = item as? Data, let url = URL(dataRepresentation: data, relativeTo: nil) else { return }
-                    self.viewModel.addToImage(url: url)
-                    print(url.path)
-                }
+            OperationQueue().addOperation {
+                    for item in itemProvider {
+                        item.loadItem(forTypeIdentifier: (kUTTypeFileURL as String), options: nil) {item, error in
+                            guard let data = item as? Data, let url = URL(dataRepresentation: data, relativeTo: nil) else { return }
+                            OperationQueue.main.addOperation {
+                                self.viewModel.addToImage(url: url)
+                            }
+                            print(url.path)
+                        }
+                    }
             }
+            
             return true
         }
     }

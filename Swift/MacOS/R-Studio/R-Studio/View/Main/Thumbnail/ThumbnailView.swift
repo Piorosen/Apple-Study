@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ThumbnailView: View {
-//    var item: ThumbnailModel
+    //    var item: ThumbnailModel
     let image:NSImage
     
     var paddingSize:CGFloat = 10
@@ -29,16 +29,16 @@ struct ThumbnailView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .scaleEffect(self.isClick ? 0.7 : 1.0)
             .onTapGesture {
-                withAnimation {
-                    
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    withAnimation {
                         self.isClick.toggle()
                         self.readNow = self.fileName
                         let _ = self.pageType.clear(fileName: self.fileName)
                     }
                     
                 }
-            }
+                
+        }
     }
 }
 

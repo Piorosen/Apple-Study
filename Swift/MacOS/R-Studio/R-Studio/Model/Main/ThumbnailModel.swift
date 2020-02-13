@@ -81,6 +81,7 @@ struct ZipThumb {
         if let arch = Archive(url: URL(fileURLWithPath: fileName), accessMode: .read) {
             archive = arch
             
+            zipList.removeAll()
             arch.forEach { data in
                 zipList.append(data.path)
             }
