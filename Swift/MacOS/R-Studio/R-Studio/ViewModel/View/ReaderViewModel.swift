@@ -27,6 +27,7 @@ class ReaderViewModel : ObservableObject {
         guard let file = readNow.archive else {
             return
         }
+        
         let list = readNow.zipList
         //        }().addOperation {
         DispatchQueue.global().async {
