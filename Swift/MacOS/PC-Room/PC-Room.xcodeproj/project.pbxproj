@@ -12,6 +12,10 @@
 		62CA92CE23F83D56007AEDFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CA92CD23F83D56007AEDFC /* Assets.xcassets */; };
 		62CA92D123F83D56007AEDFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CA92D023F83D56007AEDFC /* Preview Assets.xcassets */; };
 		62CA92D423F83D56007AEDFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CA92D223F83D56007AEDFC /* Main.storyboard */; };
+		62CA92E523F8428E007AEDFC /* PlayToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA92E423F8428E007AEDFC /* PlayToolbar.swift */; };
+		62CA92E723F842A2007AEDFC /* Advertise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA92E623F842A2007AEDFC /* Advertise.swift */; };
+		62CA92E923F842D2007AEDFC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA92E823F842D2007AEDFC /* Genre.swift */; };
+		62CA92EB23F842FD007AEDFC /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA92EA23F842FD007AEDFC /* GameList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		62CA92D323F83D56007AEDFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62CA92D523F83D56007AEDFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62CA92D623F83D56007AEDFC /* PC_Room.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PC_Room.entitlements; sourceTree = "<group>"; };
+		62CA92E423F8428E007AEDFC /* PlayToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayToolbar.swift; sourceTree = "<group>"; };
+		62CA92E623F842A2007AEDFC /* Advertise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertise.swift; sourceTree = "<group>"; };
+		62CA92E823F842D2007AEDFC /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		62CA92EA23F842FD007AEDFC /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 		62CA92C823F83D56007AEDFC /* PC-Room */ = {
 			isa = PBXGroup;
 			children = (
+				62CA92EC23F8452D007AEDFC /* Enviroment */,
 				62CA92DE23F83DDD007AEDFC /* ViewModel */,
 				62CA92DD23F83DDA007AEDFC /* Model */,
 				62CA92DC23F83DD5007AEDFC /* View */,
@@ -80,6 +89,10 @@
 		62CA92DC23F83DD5007AEDFC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				62CA92E323F8425C007AEDFC /* List */,
+				62CA92E223F841E5007AEDFC /* Genre */,
+				62CA92E023F841C0007AEDFC /* Advertise */,
+				62CA92DF23F841B3007AEDFC /* ToolBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +109,45 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		62CA92DF23F841B3007AEDFC /* ToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				62CA92E423F8428E007AEDFC /* PlayToolbar.swift */,
+			);
+			path = ToolBar;
+			sourceTree = "<group>";
+		};
+		62CA92E023F841C0007AEDFC /* Advertise */ = {
+			isa = PBXGroup;
+			children = (
+				62CA92E623F842A2007AEDFC /* Advertise.swift */,
+			);
+			path = Advertise;
+			sourceTree = "<group>";
+		};
+		62CA92E223F841E5007AEDFC /* Genre */ = {
+			isa = PBXGroup;
+			children = (
+				62CA92E823F842D2007AEDFC /* Genre.swift */,
+			);
+			path = Genre;
+			sourceTree = "<group>";
+		};
+		62CA92E323F8425C007AEDFC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				62CA92EA23F842FD007AEDFC /* GameList.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		62CA92EC23F8452D007AEDFC /* Enviroment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enviroment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CA92CC23F83D56007AEDFC /* ContentView.swift in Sources */,
+				62CA92EB23F842FD007AEDFC /* GameList.swift in Sources */,
+				62CA92E723F842A2007AEDFC /* Advertise.swift in Sources */,
 				62CA92CA23F83D56007AEDFC /* AppDelegate.swift in Sources */,
+				62CA92E523F8428E007AEDFC /* PlayToolbar.swift in Sources */,
+				62CA92E923F842D2007AEDFC /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
