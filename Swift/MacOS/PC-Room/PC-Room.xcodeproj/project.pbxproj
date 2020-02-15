@@ -55,6 +55,9 @@
 		62CA92C823F83D56007AEDFC /* PC-Room */ = {
 			isa = PBXGroup;
 			children = (
+				62CA92DE23F83DDD007AEDFC /* ViewModel */,
+				62CA92DD23F83DDA007AEDFC /* Model */,
+				62CA92DC23F83DD5007AEDFC /* View */,
 				62CA92C923F83D56007AEDFC /* AppDelegate.swift */,
 				62CA92CB23F83D56007AEDFC /* ContentView.swift */,
 				62CA92CD23F83D56007AEDFC /* Assets.xcassets */,
@@ -72,6 +75,27 @@
 				62CA92D023F83D56007AEDFC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		62CA92DC23F83DD5007AEDFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62CA92DD23F83DDA007AEDFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62CA92DE23F83DDD007AEDFC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
