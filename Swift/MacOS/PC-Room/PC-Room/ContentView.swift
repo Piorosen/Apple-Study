@@ -9,15 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showAdvertise = true
+    
     var body: some View {
         VStack(spacing: 0) {
-            PlayToolbar()
             Advertise()
+                .frame(maxWidth: .infinity, maxHeight: showAdvertise ? 300 : 0, alignment: .top)
+                .background(Color.red)
+                
             HStack(spacing: 0) {
                 Genre()
-                GameList()
+                GameList(showAd: self.$showAdvertise)
             }
-        }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

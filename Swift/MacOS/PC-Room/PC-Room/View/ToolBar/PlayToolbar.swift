@@ -11,8 +11,9 @@ import SwiftUI
 struct PlayToolbar: View {
     var body: some View {
         HStack {
-            
-        }
+            Text("챠챠의 도넛 | \"Just enjoy your competition\"")
+            Spacer()
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

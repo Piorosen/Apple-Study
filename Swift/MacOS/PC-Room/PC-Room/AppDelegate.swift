@@ -12,7 +12,7 @@ import SwiftUI
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var window: NSWindow!
+    public static var window: NSWindow!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -20,14 +20,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView()
 
         // Create the window and set the content view. 
-        window = NSWindow(
+        AppDelegate.window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.resizable, .fullSizeContentView],
+            styleMask: [.resizable, .fullSizeContentView, .miniaturizable, .closable, .titled],
             backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        AppDelegate.window.center()
+        AppDelegate.window.title = "챠챠의 도넛 | \"Just enjoy your competition\""
+        AppDelegate.window.setFrameAutosaveName("Main Window")
+        AppDelegate.window.contentView = NSHostingView(rootView: contentView)
+        AppDelegate.window.makeKeyAndOrderFront(nil)
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
