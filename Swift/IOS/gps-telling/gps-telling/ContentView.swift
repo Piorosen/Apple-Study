@@ -8,35 +8,41 @@
 
 import SwiftUI
 import CoreLocation
-
-struct Point {
-    var X:Double
-    var Y:Double
-}
+import CallKit
 
 struct ContentView: View {
-    @State var position:Point
-    var locManager = CLLocationManager()
-    
+    @State var draw = false
     
     var body: some View {
-        HStack {
-            Button(action: {
-                self.position.X = Double.random(in: 0..<10)
-                self.position.Y = Double.random(in: 0..<10)
-                
-            }, label: {
-                Text("Click Me")
-            })
-            
-            Text("\(self.position.X), \(self.position.Y)")
-        }
-        
+        VStack {
+            GPSView(createItem: $draw)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            VStack {
+                Button(action: {
+//                    self.draw = true
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                        self.draw = false
+//                    }
+                    let strCallNo: String = "01071693725"
+                    UIApplication.shared.openURL(URL(string: "facetime://"+strCallNo)!)
+                    let telUrl = URL(string: strCallNo)
+                    if ((telUrl) != nil){
+                        if(UIApplication.shared.canOpenURL(telUrl!)){
+                            
+                        }else
+                        {
+                            print("Call not available")
+                        }
+                    }
+                    
+                }, label: { Text("\(self.draw ? "True" : "False")") })
+            }.frame(maxWidth: .infinity, minHeight: 150)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(position: Point(X: 1.0, Y: 2.0))
+        ContentView()
     }
 }
