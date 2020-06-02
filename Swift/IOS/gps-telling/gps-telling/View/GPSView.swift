@@ -15,6 +15,7 @@ struct GPSView : UIViewRepresentable {
     let locationManager = CLLocationManager()
     let view = MKMapView()
     
+    // 복지관 위치
     let first: [CLLocationCoordinate2D] = [
         CLLocationCoordinate2D(latitude: 35.10423636737664, longitude:129.0262232718265),
         CLLocationCoordinate2D(latitude: 35.104308836167235, longitude:129.02646231945062),
@@ -22,6 +23,7 @@ struct GPSView : UIViewRepresentable {
         CLLocationCoordinate2D(latitude: 35.10398818603947, longitude:129.02630517901056)
     ]
     
+    // 웅배, 분덕 타이밍
     let second: [CLLocationCoordinate2D] = [
         CLLocationCoordinate2D(latitude: 35.10554998986448, longitude:129.02877718334915),
         CLLocationCoordinate2D(latitude: 35.105293326636776, longitude:129.0288748855713),
@@ -29,20 +31,22 @@ struct GPSView : UIViewRepresentable {
         CLLocationCoordinate2D(latitude: 35.105655674507176, longitude:129.0290996006824),
     ]
     
+    // 수영
     let third: [CLLocationCoordinate2D] = [
         CLLocationCoordinate2D(latitude: 35.107316397675746, longitude:129.03261687058898),
         CLLocationCoordinate2D(latitude: 35.108218713497195, longitude:129.03318240677623),
         CLLocationCoordinate2D(latitude: 35.10772608823759, longitude:129.03384810270495),
         CLLocationCoordinate2D(latitude: 35.10711311029173, longitude:129.03331391099402),
     ]
-    
-    let fours: [CLLocationCoordinate2D] = [
-        CLLocationCoordinate2D(latitude: 35.10912295577515, longitude:129.01810867926406),
-        CLLocationCoordinate2D(latitude: 35.10933492521785, longitude:129.01869888168753),
-        CLLocationCoordinate2D(latitude: 35.109003809320974, longitude:129.0188275915574),
-        CLLocationCoordinate2D(latitude: 35.10878075556617, longitude:129.01813492928775),
-    ]
-    
+//
+//    // 복희
+//    let fours: [CLLocationCoordinate2D] = [
+//        CLLocationCoordinate2D(latitude: 35.10912295577515, longitude:129.01810867926406),
+//        CLLocationCoordinate2D(latitude: 35.10933492521785, longitude:129.01869888168753),
+//        CLLocationCoordinate2D(latitude: 35.109003809320974, longitude:129.0188275915574),
+//        CLLocationCoordinate2D(latitude: 35.10878075556617, longitude:129.01813492928775),
+//    ]
+//
     
     @Binding var createItem:Bool
     
@@ -57,8 +61,15 @@ struct GPSView : UIViewRepresentable {
         view.addOverlay(MKPolygon(coordinates: first, count: 4))
         view.addOverlay(MKPolygon(coordinates: second, count: 4))
         view.addOverlay(MKPolygon(coordinates: third, count: 4))
-        view.addOverlay(MKPolygon(coordinates: fours, count: 4))
+//        view.addOverlay(MKPolygon(coordinates: fours, count: 4))
         
+        locationManager.requestWhenInUseAuthorization()
+        
+        let zoom = CLLocationCoordinate2D(latitude: 35.10413503762736, longitude: 129.02641886846027)
+
+        let viewRegion = MKCoordinateRegion(center: zoom, latitudinalMeters: 200, longitudinalMeters: 200)
+        
+        view.setRegion(viewRegion, animated: false)
         
         return view
     }
@@ -112,8 +123,8 @@ struct GPSView : UIViewRepresentable {
             if sender.state == .ended {
                 let locationInView = sender.location(in: control.view)
                 let locationOnMap = control.view.convert(locationInView, toCoordinateFrom: control.view)
+                print(locationOnMap)
                 item.append(locationOnMap)
-                
             }
         }
     }

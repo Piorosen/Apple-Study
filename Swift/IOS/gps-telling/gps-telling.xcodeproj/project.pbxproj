@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		623B5C15248492AE008A736C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623B5C14248492AE008A736C /* InfoView.swift */; };
+		623B5C1724849311008A736C /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623B5C1624849311008A736C /* GeneralView.swift */; };
+		623B5C1A248493C4008A736C /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623B5C19248493C4008A736C /* InfoModel.swift */; };
+		623B5C1C2484A831008A736C /* OneInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623B5C1B2484A831008A736C /* OneInfoView.swift */; };
 		625B0DC624516C5300BEA2BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625B0DC524516C5300BEA2BC /* AppDelegate.swift */; };
 		625B0DC824516C5300BEA2BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625B0DC724516C5300BEA2BC /* SceneDelegate.swift */; };
 		625B0DCA24516C5300BEA2BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625B0DC924516C5300BEA2BC /* ContentView.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		623B5C14248492AE008A736C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		623B5C1624849311008A736C /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		623B5C19248493C4008A736C /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		623B5C1B2484A831008A736C /* OneInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneInfoView.swift; sourceTree = "<group>"; };
 		625B0DC224516C5300BEA2BC /* gps-telling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gps-telling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		625B0DC524516C5300BEA2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		625B0DC724516C5300BEA2BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		623B5C18248493B2008A736C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				623B5C19248493C4008A736C /* InfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		625B0DB924516C5300BEA2BC = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +76,11 @@
 		625B0DC424516C5300BEA2BC /* gps-telling */ = {
 			isa = PBXGroup;
 			children = (
+				623B5C18248493B2008A736C /* Model */,
 				625B0DD92451773300BEA2BC /* View */,
 				625B0DC524516C5300BEA2BC /* AppDelegate.swift */,
-				625B0DC724516C5300BEA2BC /* SceneDelegate.swift */,
 				625B0DC924516C5300BEA2BC /* ContentView.swift */,
+				625B0DC724516C5300BEA2BC /* SceneDelegate.swift */,
 				625B0DCB24516C5500BEA2BC /* Assets.xcassets */,
 				625B0DD024516C5500BEA2BC /* LaunchScreen.storyboard */,
 				625B0DD324516C5500BEA2BC /* Info.plist */,
@@ -83,8 +100,11 @@
 		625B0DD92451773300BEA2BC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				623B5C14248492AE008A736C /* InfoView.swift */,
+				623B5C1B2484A831008A736C /* OneInfoView.swift */,
 				625B0DDA2451775300BEA2BC /* Caller.swift */,
 				625B0DDC24517B3F00BEA2BC /* GPSView.swift */,
+				623B5C1624849311008A736C /* GeneralView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,11 +180,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623B5C1724849311008A736C /* GeneralView.swift in Sources */,
 				625B0DC624516C5300BEA2BC /* AppDelegate.swift in Sources */,
 				625B0DDB2451775300BEA2BC /* Caller.swift in Sources */,
+				623B5C15248492AE008A736C /* InfoView.swift in Sources */,
+				623B5C1C2484A831008A736C /* OneInfoView.swift in Sources */,
 				625B0DC824516C5300BEA2BC /* SceneDelegate.swift in Sources */,
 				625B0DDD24517B3F00BEA2BC /* GPSView.swift in Sources */,
 				625B0DCA24516C5300BEA2BC /* ContentView.swift in Sources */,
+				623B5C1A248493C4008A736C /* InfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +333,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aoikazto.gps-telling";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aoikazto.gps-telling1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aoikazto.gps-telling";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aoikazto.gps-telling1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
