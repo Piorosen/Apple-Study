@@ -57,6 +57,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		624F5FFC24860DE800601C09 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		625B0DB924516C5300BEA2BC = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +83,7 @@
 		625B0DC424516C5300BEA2BC /* gps-telling */ = {
 			isa = PBXGroup;
 			children = (
+				624F5FFC24860DE800601C09 /* Logic */,
 				623B5C18248493B2008A736C /* Model */,
 				625B0DD92451773300BEA2BC /* View */,
 				625B0DC524516C5300BEA2BC /* AppDelegate.swift */,

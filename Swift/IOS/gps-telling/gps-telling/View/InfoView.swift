@@ -47,27 +47,7 @@ struct InfoView: View {
             }) {
                 Text("Save")
             })
-            .onAppear {
-//                let file = FileManager.default
-//
-//                let dir = file.urls(for: .documentDirectory, in: .userDomainMask).first
-//                if dir == nil {
-//                    print("Dir is NIL")
-//                    return
-//                }
-//
-//                let fileUrl = dir!.appendingPathComponent("\(self.Name).info")
-//
-//                if let read = try? String(contentsOf: fileUrl){
-//                    let line = read.split(separator: "\n")
-//                    for index in line.indices {
-//                        let dayofWeek = String(line[index]).trimmingCharacters(in: .whitespaces).split(separator:" ")
-//                        for i in dayofWeek.indices {
-//                            self.info[index].DayOfWeek[i] = Int(String(dayofWeek[i])) == 0 ? false : true
-//                        }
-//                    }
-//                }
-            }
         }
     }
 }
+

@@ -5,7 +5,7 @@
 //  Created by Aoikazto on 2020/06/01.
 //  Copyright © 2020 Aoikazto. All rights reserved.
 //
-
+import AudioToolbox
 import SwiftUI
 
 enum Dir {
@@ -57,9 +57,17 @@ struct GeneralView: View {
                 }
                 
                 List (today) { item in
-                    VStack {
-                        Text("\(item.Name)")
-                        Text("\(item.PhoneNum[0])")
+                    HStack {
+                        VStack {
+                            Text("\(item.Name)")
+                            Text("\(item.PhoneNum[0])")
+                        }
+                        Spacer()
+                        Button(action: {
+                            print("edit")
+                        }) {
+                            Text("Edit")
+                        }
                     }
                 }
             }
@@ -69,6 +77,20 @@ struct GeneralView: View {
                 for item in self.Middle {
                     if item.DayOfWeek[self.dayofIndex - 1] {
                         self.today.append(item)
+                    }
+                }
+                
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+                    let copy = self.today;
+                    
+                    for item in copy {
+                        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                        if let pos = GPSView.CurrentPosition {
+                            if item.IsCallTiming(pos: pos) {
+                                
+                            }
+                        }
+                        
                     }
                 }
             }
